@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="luong">
+      <h2 data-cy="luongDetailsHeading"><span jhiTranslate="quanlynhansuApp.luong.detail.title">Luong</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ luong.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.maLuong">Ma Luong</span></dt>
+        <dd>
+          <span>{{ luong.maLuong }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.heSoLuong">He So Luong</span></dt>
+        <dd>
+          <span>{{ luong.heSoLuong }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.luongCb">Luong Cb</span></dt>
+        <dd>
+          <span>{{ luong.luongCb }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.heSoPhuCap">He So Phu Cap</span></dt>
+        <dd>
+          <span>{{ luong.heSoPhuCap }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.khoanCongThem">Khoan Cong Them</span></dt>
+        <dd>
+          <span>{{ luong.khoanCongThem }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.khoanTru">Khoan Tru</span></dt>
+        <dd>
+          <span>{{ luong.khoanTru }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.luong.nhanVien">Nhan Vien</span></dt>
+        <dd>
+          <div *ngIf="luong.nhanVien">
+            <a [routerLink]="['/nhan-vien', luong.nhanVien.id, 'view']">{{ luong.nhanVien.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/luong', luong.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>

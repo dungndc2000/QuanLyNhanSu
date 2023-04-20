@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419033726",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "phong_ban",
+  "fields": [
+    {
+      "fieldName": "maPB",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "tenPB",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "sDT",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "PhongBan",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "nhanVien",
+      "otherEntityRelationshipName": "phongBan",
+      "relationshipName": "nhanVien",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

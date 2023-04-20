@@ -1,0 +1,147 @@
+<div>
+  <h2 id="page-heading" data-cy="ChuyenMonHeading">
+    <span jhiTranslate="quanlynhansuApp.chuyenMon.home.title">Chuyen Mons</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPageRF()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="quanlynhansuApp.chuyenMon.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-chuyen-mon"
+        [routerLink]="['/chuyen-mon/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="quanlynhansuApp.chuyenMon.home.createLabel"> Thêm mới một Chuyen Mon </span>
+      </button>
+    </div>
+  </h2>
+
+  <div class="InputFindiv" style="display: flex; justify-content: space-around">
+    <input
+      type="text"
+      class="InputFind"
+      placeholder="Tìm kiếm theo mã chuyên môn"
+      (keyup.enter)="clickEnterMaCM($event)"
+      style="width: 48%; height: 40px; border-radius: 5px; font-size: 20px; padding: 10px; margin-bottom: 10px; background: #e9ecef"
+    />
+    <input
+      type="text"
+      class="InputFind"
+      placeholder="Tìm kiếm theo tên chuyên môn"
+      (keyup.enter)="clickEnterTenCM($event)"
+      style="width: 48%; height: 40px; border-radius: 5px; font-size: 20px; padding: 10px; margin-bottom: 10px; background: #e9ecef"
+    />
+  </div>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="chuyenMons?.length === 0">
+    <span jhiTranslate="quanlynhansuApp.chuyenMon.home.notFound">No Chuyen Mons found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="chuyenMons && chuyenMons.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maChuyenMon">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.chuyenMon.maChuyenMon">Ma Chuyen Mon</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tenChuyenMon">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.chuyenMon.tenChuyenMon">Ten Chuyen Mon</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chuyenMon of chuyenMons; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/chuyen-mon', chuyenMon.id, 'view']">{{ chuyenMon.id }}</a>
+          </td>
+          <td>{{ chuyenMon.maChuyenMon }}</td>
+          <td>{{ chuyenMon.tenChuyenMon }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <!--              <button-->
+              <!--                type="submit"-->
+              <!--                [routerLink]="['/nhan-vien']"-->
+              <!--                [queryParams]="{ 'filter[chuyenMonId.in]': chuyenMon.id }"-->
+              <!--                class="btn btn-info btn-sm"-->
+              <!--                data-cy="filterOtherEntityButton"-->
+              <!--              >-->
+              <!--                <fa-icon icon="eye"></fa-icon>-->
+              <!--                <span-->
+              <!--                  class="d-none d-md-inline"-->
+              <!--                  jhiTranslate="entity.action.show"-->
+              <!--                  [translateValues]="{ otherEntity: ('quanlynhansuApp.chuyenMon.nhanVien' | translate) }"-->
+              <!--                  >Show Nhan Vien</span-->
+              <!--                >-->
+              <!--              </button>-->
+              <button
+                type="submit"
+                [routerLink]="['/chuyen-mon', chuyenMon.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/chuyen-mon', chuyenMon.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+              </button>
+
+              <button type="submit" (click)="delete(chuyenMon)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="chuyenMons && chuyenMons.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity KhenThuong.
+    -->
+    <changeSet id="20230419033724-1" author="jhipster">
+        <createTable tableName="khen_thuong">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="soqd" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="ngay_qd" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="ten" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="loai" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hinh_thuc" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="so_tien" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="noi_dung" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nhan_vien_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="khen_thuong" columnName="ngay_qd" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230419033724-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/khen_thuong.csv"
+                  separator=";"
+                  tableName="khen_thuong"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="soqd" type="string"/>
+            <column name="ngay_qd" type="date"/>
+            <column name="ten" type="string"/>
+            <column name="loai" type="string"/>
+            <column name="hinh_thuc" type="string"/>
+            <column name="so_tien" type="string"/>
+            <column name="noi_dung" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

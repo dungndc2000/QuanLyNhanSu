@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419033729",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nguoi_than",
+  "fields": [
+    {
+      "fieldName": "maNT",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "tenNT",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "sDT",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "NguoiThan",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "nhanVien",
+      "otherEntityRelationshipName": "nguoiThan",
+      "ownerSide": false,
+      "relationshipName": "nhanVien",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

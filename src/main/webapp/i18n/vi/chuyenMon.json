@@ -1,0 +1,26 @@
+{
+  "quanlynhansuApp": {
+    "chuyenMon": {
+      "home": {
+        "title": "Chuyen Mons",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Chuyen Mon",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Chuyen Mon",
+        "notFound": "No Chuyen Mons found"
+      },
+      "created": "Một Chuyen Mon mới được tạo với định danh {{ param }}",
+      "updated": "Một Chuyen Mon cập nhật với định danh {{ param }}",
+      "deleted": "Một Chuyen Mon đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Chuyen Mon {{ id }}?"
+      },
+      "detail": {
+        "title": "Chuyen Mon"
+      },
+      "id": "ID",
+      "maChuyenMon": "Ma Chuyen Mon",
+      "tenChuyenMon": "Ten Chuyen Mon",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

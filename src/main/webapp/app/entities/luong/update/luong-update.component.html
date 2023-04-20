@@ -1,0 +1,164 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-luong-heading" data-cy="LuongCreateUpdateHeading" jhiTranslate="quanlynhansuApp.luong.home.createOrEditLabel">
+        Thêm mới hoặc cập nhật Luong
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.maLuong" for="field_maLuong">Ma Luong</label>
+          <input type="text" class="form-control" name="maLuong" id="field_maLuong" data-cy="maLuong" formControlName="maLuong" />
+          <div *ngIf="editForm.get('maLuong')!.invalid && (editForm.get('maLuong')!.dirty || editForm.get('maLuong')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maLuong')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Trường này bắt buộc phải nhập.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maLuong')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Trường này không được vượt quá 10 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.heSoLuong" for="field_heSoLuong">He So Luong</label>
+          <input type="text" class="form-control" name="heSoLuong" id="field_heSoLuong" data-cy="heSoLuong" formControlName="heSoLuong" />
+          <div *ngIf="editForm.get('heSoLuong')!.invalid && (editForm.get('heSoLuong')!.dirty || editForm.get('heSoLuong')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('heSoLuong')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Trường này không được vượt quá 10 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.luongCb" for="field_luongCb">Luong Cb</label>
+          <input type="text" class="form-control" name="luongCb" id="field_luongCb" data-cy="luongCb" formControlName="luongCb" />
+          <div *ngIf="editForm.get('luongCb')!.invalid && (editForm.get('luongCb')!.dirty || editForm.get('luongCb')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('luongCb')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              Trường này không được vượt quá 20 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.heSoPhuCap" for="field_heSoPhuCap">He So Phu Cap</label>
+          <input
+            type="text"
+            class="form-control"
+            name="heSoPhuCap"
+            id="field_heSoPhuCap"
+            data-cy="heSoPhuCap"
+            formControlName="heSoPhuCap"
+          />
+          <div *ngIf="editForm.get('heSoPhuCap')!.invalid && (editForm.get('heSoPhuCap')!.dirty || editForm.get('heSoPhuCap')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('heSoPhuCap')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              Trường này không được vượt quá 20 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.khoanCongThem" for="field_khoanCongThem">Khoan Cong Them</label>
+          <input
+            type="text"
+            class="form-control"
+            name="khoanCongThem"
+            id="field_khoanCongThem"
+            data-cy="khoanCongThem"
+            formControlName="khoanCongThem"
+          />
+          <div
+            *ngIf="
+              editForm.get('khoanCongThem')!.invalid && (editForm.get('khoanCongThem')!.dirty || editForm.get('khoanCongThem')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('khoanCongThem')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              Trường này không được vượt quá 20 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.khoanTru" for="field_khoanTru">Khoan Tru</label>
+          <input type="text" class="form-control" name="khoanTru" id="field_khoanTru" data-cy="khoanTru" formControlName="khoanTru" />
+          <div *ngIf="editForm.get('khoanTru')!.invalid && (editForm.get('khoanTru')!.dirty || editForm.get('khoanTru')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('khoanTru')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              Trường này không được vượt quá 20 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.luong.nhanVien" for="field_nhanVien">Nhan Vien</label>
+          <select
+            class="form-control"
+            id="field_nhanVien"
+            data-cy="nhanVien"
+            name="nhanVien"
+            formControlName="nhanVien"
+            [compareWith]="compareNhanVien"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="nhanVienOption" *ngFor="let nhanVienOption of nhanViensSharedCollection">{{ nhanVienOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

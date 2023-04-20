@@ -11,7 +11,18 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033722_added_entity_NhanVien.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033723_added_entity_Luong.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033724_added_entity_KhenThuong.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033725_added_entity_ChucVu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033726_added_entity_PhongBan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033727_added_entity_ChuyenMon.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033728_added_entity_TrinhDoHV.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033729_added_entity_NguoiThan.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230419033722_added_entity_constraints_NhanVien.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033723_added_entity_constraints_Luong.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230419033724_added_entity_constraints_KhenThuong.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,27 @@
+{
+  "quanlynhansuApp": {
+    "nguoiThan": {
+      "home": {
+        "title": "Nguoi Thans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Nguoi Than",
+        "createOrEditLabel": "Create or edit a Nguoi Than",
+        "notFound": "No Nguoi Thans found"
+      },
+      "created": "A new Nguoi Than is created with identifier {{ param }}",
+      "updated": "A Nguoi Than is updated with identifier {{ param }}",
+      "deleted": "A Nguoi Than is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nguoi Than {{ id }}?"
+      },
+      "detail": {
+        "title": "Nguoi Than"
+      },
+      "id": "ID",
+      "maNT": "Ma NT",
+      "tenNT": "Ten NT",
+      "sDT": "S DT",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

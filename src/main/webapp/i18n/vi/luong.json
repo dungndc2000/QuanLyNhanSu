@@ -1,0 +1,30 @@
+{
+  "quanlynhansuApp": {
+    "luong": {
+      "home": {
+        "title": "Luongs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Luong",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Luong",
+        "notFound": "No Luongs found"
+      },
+      "created": "Một Luong mới được tạo với định danh {{ param }}",
+      "updated": "Một Luong cập nhật với định danh {{ param }}",
+      "deleted": "Một Luong đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Luong {{ id }}?"
+      },
+      "detail": {
+        "title": "Luong"
+      },
+      "id": "ID",
+      "maLuong": "Ma Luong",
+      "heSoLuong": "He So Luong",
+      "luongCb": "Luong Cb",
+      "heSoPhuCap": "He So Phu Cap",
+      "khoanCongThem": "Khoan Cong Them",
+      "khoanTru": "Khoan Tru",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

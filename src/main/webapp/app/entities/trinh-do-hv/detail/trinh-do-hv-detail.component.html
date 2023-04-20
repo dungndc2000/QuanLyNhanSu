@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="trinhDoHV">
+      <h2 data-cy="trinhDoHVDetailsHeading"><span jhiTranslate="quanlynhansuApp.trinhDoHV.detail.title">Trinh Do HV</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ trinhDoHV.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.trinhDoHV.maTDHV">Ma TDHV</span></dt>
+        <dd>
+          <span>{{ trinhDoHV.maTDHV }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.trinhDoHV.tenTDHV">Ten TDHV</span></dt>
+        <dd>
+          <span>{{ trinhDoHV.tenTDHV }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/trinh-do-hv', trinhDoHV.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>

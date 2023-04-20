@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-chuc-vu-heading" data-cy="ChucVuCreateUpdateHeading" jhiTranslate="quanlynhansuApp.chucVu.home.createOrEditLabel">
+        Thêm mới hoặc cập nhật Chuc Vu
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chucVu.maCV" for="field_maCV">Ma CV</label>
+          <input type="text" class="form-control" name="maCV" id="field_maCV" data-cy="maCV" formControlName="maCV" />
+          <div *ngIf="editForm.get('maCV')!.invalid && (editForm.get('maCV')!.dirty || editForm.get('maCV')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('maCV')?.errors?.required" jhiTranslate="entity.validation.required">
+              Trường này bắt buộc phải nhập.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maCV')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Trường này không được vượt quá 10 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chucVu.tenChucVu" for="field_tenChucVu">Ten Chuc Vu</label>
+          <input type="text" class="form-control" name="tenChucVu" id="field_tenChucVu" data-cy="tenChucVu" formControlName="tenChucVu" />
+          <div *ngIf="editForm.get('tenChucVu')!.invalid && (editForm.get('tenChucVu')!.dirty || editForm.get('tenChucVu')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tenChucVu')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              Trường này không được vượt quá 50 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chucVu.phuCap" for="field_phuCap">Phu Cap</label>
+          <input type="text" class="form-control" name="phuCap" id="field_phuCap" data-cy="phuCap" formControlName="phuCap" />
+          <div *ngIf="editForm.get('phuCap')!.invalid && (editForm.get('phuCap')!.dirty || editForm.get('phuCap')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('phuCap')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Trường này không được vượt quá 10 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chucVu.ghiChu" for="field_ghiChu">Ghi Chu</label>
+          <input type="text" class="form-control" name="ghiChu" id="field_ghiChu" data-cy="ghiChu" formControlName="ghiChu" />
+          <div *ngIf="editForm.get('ghiChu')!.invalid && (editForm.get('ghiChu')!.dirty || editForm.get('ghiChu')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ghiChu')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 100 }"
+            >
+              Trường này không được vượt quá 100 ký tự.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

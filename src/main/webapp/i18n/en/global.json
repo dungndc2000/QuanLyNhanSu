@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "nhanVien": "Nhan Vien",
+        "luong": "Luong",
+        "khenThuong": "Khen Thuong",
+        "chucVu": "Chuc Vu",
+        "phongBan": "Phong Ban",
+        "chuyenMon": "Chuyen Mon",
+        "trinhDoHv": "Trinh Do HV",
+        "nguoiThan": "Nguoi Than",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

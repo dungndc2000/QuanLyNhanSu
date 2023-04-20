@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="khenThuong">
+      <h2 data-cy="khenThuongDetailsHeading"><span jhiTranslate="quanlynhansuApp.khenThuong.detail.title">Khen Thuong</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ khenThuong.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.soqd">Soqd</span></dt>
+        <dd>
+          <span>{{ khenThuong.soqd }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.ngayQd">Ngay Qd</span></dt>
+        <dd>
+          <span>{{ khenThuong.ngayQd | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.ten">Ten</span></dt>
+        <dd>
+          <span>{{ khenThuong.ten }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.loai">Loai</span></dt>
+        <dd>
+          <span>{{ khenThuong.loai }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.hinhThuc">Hinh Thuc</span></dt>
+        <dd>
+          <span>{{ khenThuong.hinhThuc }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.soTien">So Tien</span></dt>
+        <dd>
+          <span>{{ khenThuong.soTien }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.noiDung">Noi Dung</span></dt>
+        <dd>
+          <span>{{ khenThuong.noiDung }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.khenThuong.nhanVien">Nhan Vien</span></dt>
+        <dd>
+          <div *ngIf="khenThuong.nhanVien">
+            <a [routerLink]="['/nhan-vien', khenThuong.nhanVien.id, 'view']">{{ khenThuong.nhanVien.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/khen-thuong', khenThuong.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "quanlynhansuApp": {
+    "nguoiThan": {
+      "home": {
+        "title": "Nguoi Thans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Nguoi Than",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Nguoi Than",
+        "notFound": "No Nguoi Thans found"
+      },
+      "created": "Một Nguoi Than mới được tạo với định danh {{ param }}",
+      "updated": "Một Nguoi Than cập nhật với định danh {{ param }}",
+      "deleted": "Một Nguoi Than đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Nguoi Than {{ id }}?"
+      },
+      "detail": {
+        "title": "Nguoi Than"
+      },
+      "id": "ID",
+      "maNT": "Ma NT",
+      "tenNT": "Ten NT",
+      "sDT": "S DT",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

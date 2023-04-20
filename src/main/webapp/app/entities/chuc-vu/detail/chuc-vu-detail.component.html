@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="chucVu">
+      <h2 data-cy="chucVuDetailsHeading"><span jhiTranslate="quanlynhansuApp.chucVu.detail.title">Chuc Vu</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ chucVu.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chucVu.maCV">Ma CV</span></dt>
+        <dd>
+          <span>{{ chucVu.maCV }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chucVu.tenChucVu">Ten Chuc Vu</span></dt>
+        <dd>
+          <span>{{ chucVu.tenChucVu }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chucVu.phuCap">Phu Cap</span></dt>
+        <dd>
+          <span>{{ chucVu.phuCap }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chucVu.ghiChu">Ghi Chu</span></dt>
+        <dd>
+          <span>{{ chucVu.ghiChu }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/chuc-vu', chucVu.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "quanlynhansuApp": {
+    "phongBan": {
+      "home": {
+        "title": "Phong Bans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Phong Ban",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Phong Ban",
+        "notFound": "No Phong Bans found"
+      },
+      "created": "Một Phong Ban mới được tạo với định danh {{ param }}",
+      "updated": "Một Phong Ban cập nhật với định danh {{ param }}",
+      "deleted": "Một Phong Ban đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Phong Ban {{ id }}?"
+      },
+      "detail": {
+        "title": "Phong Ban"
+      },
+      "id": "ID",
+      "maPB": "Ma PB",
+      "tenPB": "Ten PB",
+      "sDT": "S DT",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

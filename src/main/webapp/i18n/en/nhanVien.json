@@ -1,0 +1,39 @@
+{
+  "quanlynhansuApp": {
+    "nhanVien": {
+      "home": {
+        "title": "Nhan Viens",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Nhan Vien",
+        "createOrEditLabel": "Create or edit a Nhan Vien",
+        "notFound": "No Nhan Viens found"
+      },
+      "created": "A new Nhan Vien is created with identifier {{ param }}",
+      "updated": "A Nhan Vien is updated with identifier {{ param }}",
+      "deleted": "A Nhan Vien is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nhan Vien {{ id }}?"
+      },
+      "detail": {
+        "title": "Nhan Vien"
+      },
+      "id": "ID",
+      "maNV": "Ma NV",
+      "tenNV": "Ten NV",
+      "ngaySinh": "Ngay Sinh",
+      "gioiTinh": "Gioi Tinh",
+      "diaChi": "Dia Chi",
+      "soCMND": "So CMND",
+      "sDT": "S DT",
+      "email": "Email",
+      "heSoLuong": "He So Luong",
+      "nguoiThan": "Nguoi Than",
+      "luong": "Luong",
+      "khenThuong": "Khen Thuong",
+      "chucVu": "Chuc Vu",
+      "phongBan": "Phong Ban",
+      "chuyenMon": "Chuyen Mon",
+      "trinhDoHV": "Trinh Do HV"
+    }
+  }
+}

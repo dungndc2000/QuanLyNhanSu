@@ -1,0 +1,273 @@
+<div>
+  <h2 id="page-heading" data-cy="NhanVienHeading">
+    <span jhiTranslate="quanlynhansuApp.nhanVien.home.title">Nhan Viens</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPageRF()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="quanlynhansuApp.nhanVien.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nhan-vien"
+        [routerLink]="['/nhan-vien/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="quanlynhansuApp.nhanVien.home.createLabel"> Thêm mới một Nhan Vien </span>
+      </button>
+    </div>
+  </h2>
+
+  <div class="InputFindiv" style="display: contents">
+    <input
+      type="text"
+      class="InputFind"
+      placeholder="Tìm kiếm theo mã nhân viên"
+      (keyup.enter)="clickEnterMaNV($event)"
+      style="width: 33%; height: 40px; border-radius: 5px; font-size: 20px; padding: 10px; margin-bottom: 10px; background: #e9ecef"
+    />
+    <input
+      type="text"
+      class="InputFind"
+      placeholder="Tìm kiếm theo tên nhân viên"
+      (keyup.enter)="clickEnterTenNV($event)"
+      style="width: 33%; height: 40px; border-radius: 5px; font-size: 20px; padding: 10px; margin-bottom: 10px; background: #e9ecef"
+    />
+    <input
+      type="text"
+      class="InputFind"
+      placeholder="Tìm kiếm theo địa chỉ"
+      (keyup.enter)="clickEnterADD($event)"
+      style="width: 33%; height: 40px; border-radius: 5px; font-size: 20px; padding: 10px; margin-bottom: 10px; background: #e9ecef"
+    />
+  </div>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="nhanViens?.length === 0">
+    <span jhiTranslate="quanlynhansuApp.nhanVien.home.notFound">No Nhan Viens found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="nhanViens && nhanViens.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maNV">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.maNV">Ma NV</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tenNV">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.tenNV">Ten NV</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ngaySinh">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.ngaySinh">Ngay Sinh</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gioiTinh">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.gioiTinh">Gioi Tinh</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="diaChi">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.diaChi">Dia Chi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="soCMND">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.soCMND">So CMND</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sDT">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.sDT">S DT</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="heSoLuong">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.heSoLuong">He So Luong</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nguoiThan.id">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.nguoiThan">Nguoi Than</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="chucVu.id">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.chucVu">Chuc Vu</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phongBan.id">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.phongBan">Phong Ban</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="chuyenMon.id">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.chuyenMon">Chuyen Mon</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="trinhDoHV.id">
+            <div class="d-flex">
+              <span jhiTranslate="quanlynhansuApp.nhanVien.trinhDoHV">Trinh Do HV</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nhanVien of nhanViens; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nhan-vien', nhanVien.id, 'view']">{{ nhanVien.id }}</a>
+          </td>
+          <td>{{ nhanVien.maNV }}</td>
+          <td>{{ nhanVien.tenNV }}</td>
+          <td>{{ nhanVien.ngaySinh | formatMediumDatetime }}</td>
+          <td>{{ nhanVien.gioiTinh }}</td>
+          <td>{{ nhanVien.diaChi }}</td>
+          <td>{{ nhanVien.soCMND }}</td>
+          <td>{{ nhanVien.sDT }}</td>
+          <td>{{ nhanVien.email }}</td>
+          <td>{{ nhanVien.heSoLuong }}</td>
+          <td>
+            <div *ngIf="nhanVien.nguoiThan">
+              <a [routerLink]="['/nguoi-than', nhanVien.nguoiThan.id, 'view']">{{ nhanVien.nguoiThan.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="nhanVien.chucVu">
+              <a [routerLink]="['/chuc-vu', nhanVien.chucVu.id, 'view']">{{ nhanVien.chucVu.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="nhanVien.phongBan">
+              <a [routerLink]="['/phong-ban', nhanVien.phongBan.id, 'view']">{{ nhanVien.phongBan.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="nhanVien.chuyenMon">
+              <a [routerLink]="['/chuyen-mon', nhanVien.chuyenMon.id, 'view']">{{ nhanVien.chuyenMon.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="nhanVien.trinhDoHV">
+              <a [routerLink]="['/trinh-do-hv', nhanVien.trinhDoHV.id, 'view']">{{ nhanVien.trinhDoHV.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <!--              <button-->
+              <!--                type="submit"-->
+              <!--                [routerLink]="['/luong']"-->
+              <!--                [queryParams]="{ 'filter[nhanVienId.in]': nhanVien.id }"-->
+              <!--                class="btn btn-info btn-sm"-->
+              <!--                data-cy="filterOtherEntityButton"-->
+              <!--              >-->
+              <!--                <fa-icon icon="eye"></fa-icon>-->
+              <!--                <span-->
+              <!--                  class="d-none d-md-inline"-->
+              <!--                  jhiTranslate="entity.action.show"-->
+              <!--                  [translateValues]="{ otherEntity: ('quanlynhansuApp.nhanVien.luong' | translate) }"-->
+              <!--                  >Show Luong</span-->
+              <!--                >-->
+              <!--              </button>-->
+              <!--              <button-->
+              <!--                type="submit"-->
+              <!--                [routerLink]="['/khen-thuong']"-->
+              <!--                [queryParams]="{ 'filter[nhanVienId.in]': nhanVien.id }"-->
+              <!--                class="btn btn-info btn-sm"-->
+              <!--                data-cy="filterOtherEntityButton"-->
+              <!--              >-->
+              <!--                <fa-icon icon="eye"></fa-icon>-->
+              <!--                <span-->
+              <!--                  class="d-none d-md-inline"-->
+              <!--                  jhiTranslate="entity.action.show"-->
+              <!--                  [translateValues]="{ otherEntity: ('quanlynhansuApp.nhanVien.khenThuong' | translate) }"-->
+              <!--                  >Show Khen Thuong</span-->
+              <!--                >-->
+              <!--              </button>-->
+              <button
+                type="submit"
+                [routerLink]="['/nhan-vien', nhanVien.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/nhan-vien', nhanVien.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+              </button>
+
+              <button type="submit" (click)="delete(nhanVien)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="nhanViens && nhanViens.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

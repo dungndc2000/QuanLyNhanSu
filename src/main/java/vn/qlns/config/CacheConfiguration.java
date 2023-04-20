@@ -51,6 +51,20 @@ public class CacheConfiguration {
             createCache(cm, vn.qlns.domain.User.class.getName());
             createCache(cm, vn.qlns.domain.Authority.class.getName());
             createCache(cm, vn.qlns.domain.User.class.getName() + ".authorities");
+            createCache(cm, vn.qlns.domain.NhanVien.class.getName());
+            createCache(cm, vn.qlns.domain.NhanVien.class.getName() + ".luongs");
+            createCache(cm, vn.qlns.domain.NhanVien.class.getName() + ".khenThuongs");
+            createCache(cm, vn.qlns.domain.Luong.class.getName());
+            createCache(cm, vn.qlns.domain.KhenThuong.class.getName());
+            createCache(cm, vn.qlns.domain.ChucVu.class.getName());
+            createCache(cm, vn.qlns.domain.ChucVu.class.getName() + ".nhanViens");
+            createCache(cm, vn.qlns.domain.PhongBan.class.getName());
+            createCache(cm, vn.qlns.domain.PhongBan.class.getName() + ".nhanViens");
+            createCache(cm, vn.qlns.domain.ChuyenMon.class.getName());
+            createCache(cm, vn.qlns.domain.ChuyenMon.class.getName() + ".nhanViens");
+            createCache(cm, vn.qlns.domain.TrinhDoHV.class.getName());
+            createCache(cm, vn.qlns.domain.TrinhDoHV.class.getName() + ".nhanViens");
+            createCache(cm, vn.qlns.domain.NguoiThan.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity NhanVien.
+    -->
+    <changeSet id="20230419033722-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="nguoi_than_id"
+                                 baseTableName="nhan_vien"
+                                 constraintName="fk_nhan_vien__nguoi_than_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nguoi_than"/>
+
+        <addForeignKeyConstraint baseColumnNames="chuc_vu_id"
+                                 baseTableName="nhan_vien"
+                                 constraintName="fk_nhan_vien__chuc_vu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chuc_vu"/>
+
+        <addForeignKeyConstraint baseColumnNames="phong_ban_id"
+                                 baseTableName="nhan_vien"
+                                 constraintName="fk_nhan_vien__phong_ban_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="phong_ban"/>
+
+        <addForeignKeyConstraint baseColumnNames="chuyen_mon_id"
+                                 baseTableName="nhan_vien"
+                                 constraintName="fk_nhan_vien__chuyen_mon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chuyen_mon"/>
+
+        <addForeignKeyConstraint baseColumnNames="trinh_dohv_id"
+                                 baseTableName="nhan_vien"
+                                 constraintName="fk_nhan_vien__trinh_dohv_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="trinh_do_hv"/>
+    </changeSet>
+</databaseChangeLog>

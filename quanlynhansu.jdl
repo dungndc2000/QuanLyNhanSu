@@ -1,0 +1,84 @@
+PHONE_ML = 20
+MINI_ML = 50
+SMALL_ML = 256
+MEDIUM_ML = 1024
+LARGE_ML = 4000
+
+entity NhanVien {
+	maNV String required maxlength(MINI_ML)
+    tenNV String required maxlength(SMALL_ML)
+    ngaySinh ZonedDateTime required
+    gioiTinh String required
+    diaChi String maxlength(MEDIUM_ML)
+  	SoCMND String required
+    SDT String maxlength(10)
+    Email String maxlength(50)
+    heSoLuong String maxlength(50)
+}
+
+entity Luong {
+	 MaLuong String required maxlength(10)
+	 HeSoLuong String maxlength(10)
+     LuongCb String maxlength(20)
+     HeSoPhuCap String maxlength(20)
+     KhoanCongThem String maxlength(20)
+     KhoanTru String maxlength(20)
+}
+
+entity KhenThuong {
+ 	 Soqd String required maxlength(10)
+     NgayQd ZonedDateTime required
+     Ten String maxlength(20)
+     Loai String maxlength(20)
+     HinhThuc String maxlength(20)
+     SoTien String maxlength(20)
+     NoiDung String maxlength(20)
+}
+
+entity ChucVu {
+	MaCV String required maxlength(10)
+    TenChucVu String maxlength(50)
+    PhuCap String maxlength(10)
+    GhiChu String maxlength(100)
+}
+
+entity PhongBan {
+	MaPB String required maxlength(10)
+	TenPB String maxlength(50)
+	SDT String maxlength(20)
+}
+
+entity ChuyenMon {
+	MaChuyenMon String required maxlength(10)
+    TenChuyenMon String maxlength(50)
+}
+
+entity TrinhDoHV {
+    MaTDHV String required maxlength(20)
+    TenTDHV String maxlength(50)
+}
+
+entity NguoiThan {
+    MaNT String required maxlength(20)
+    TenNT String maxlength(50)
+    SDT String maxlength(20)
+}
+
+ 
+relationship OneToMany {
+  NhanVien to Luong
+  NhanVien to KhenThuong
+  ChucVu to NhanVien
+  PhongBan  to NhanVien
+  ChuyenMon to NhanVien 
+  TrinhDoHV to NhanVien
+}
+
+
+relationship OneToOne {
+  NhanVien to NguoiThan
+}
+
+paginate * with pagination
+service * with serviceClass
+filter *

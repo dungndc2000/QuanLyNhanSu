@@ -1,0 +1,111 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419033722",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nhan_vien",
+  "fields": [
+    {
+      "fieldName": "maNV",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "tenNV",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "ngaySinh",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gioiTinh",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "diaChi",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1024"
+    },
+    {
+      "fieldName": "soCMND",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sDT",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "heSoLuong",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "NhanVien",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "nguoiThan",
+      "otherEntityRelationshipName": "nhanVien",
+      "ownerSide": true,
+      "relationshipName": "nguoiThan",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "luong",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "luong",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "khenThuong",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "khenThuong",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "chucVu",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "chucVu",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "phongBan",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "phongBan",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "chuyenMon",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "chuyenMon",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "trinhDoHV",
+      "otherEntityRelationshipName": "nhanVien",
+      "relationshipName": "trinhDoHV",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

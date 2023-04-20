@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="chuyenMon">
+      <h2 data-cy="chuyenMonDetailsHeading"><span jhiTranslate="quanlynhansuApp.chuyenMon.detail.title">Chuyen Mon</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ chuyenMon.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chuyenMon.maChuyenMon">Ma Chuyen Mon</span></dt>
+        <dd>
+          <span>{{ chuyenMon.maChuyenMon }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.chuyenMon.tenChuyenMon">Ten Chuyen Mon</span></dt>
+        <dd>
+          <span>{{ chuyenMon.tenChuyenMon }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/chuyen-mon', chuyenMon.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>

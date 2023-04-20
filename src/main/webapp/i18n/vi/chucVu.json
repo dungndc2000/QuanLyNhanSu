@@ -1,0 +1,28 @@
+{
+  "quanlynhansuApp": {
+    "chucVu": {
+      "home": {
+        "title": "Chuc Vus",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Chuc Vu",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Chuc Vu",
+        "notFound": "No Chuc Vus found"
+      },
+      "created": "Một Chuc Vu mới được tạo với định danh {{ param }}",
+      "updated": "Một Chuc Vu cập nhật với định danh {{ param }}",
+      "deleted": "Một Chuc Vu đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Chuc Vu {{ id }}?"
+      },
+      "detail": {
+        "title": "Chuc Vu"
+      },
+      "id": "ID",
+      "maCV": "Ma CV",
+      "tenChucVu": "Ten Chuc Vu",
+      "phuCap": "Phu Cap",
+      "ghiChu": "Ghi Chu",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

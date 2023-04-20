@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-chuyen-mon-heading"
+        data-cy="ChuyenMonCreateUpdateHeading"
+        jhiTranslate="quanlynhansuApp.chuyenMon.home.createOrEditLabel"
+      >
+        Thêm mới hoặc cập nhật Chuyen Mon
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chuyenMon.maChuyenMon" for="field_maChuyenMon">Ma Chuyen Mon</label>
+          <input
+            type="text"
+            class="form-control"
+            name="maChuyenMon"
+            id="field_maChuyenMon"
+            data-cy="maChuyenMon"
+            formControlName="maChuyenMon"
+          />
+          <div *ngIf="editForm.get('maChuyenMon')!.invalid && (editForm.get('maChuyenMon')!.dirty || editForm.get('maChuyenMon')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maChuyenMon')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Trường này bắt buộc phải nhập.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maChuyenMon')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Trường này không được vượt quá 10 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.chuyenMon.tenChuyenMon" for="field_tenChuyenMon">Ten Chuyen Mon</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tenChuyenMon"
+            id="field_tenChuyenMon"
+            data-cy="tenChuyenMon"
+            formControlName="tenChuyenMon"
+          />
+          <div
+            *ngIf="editForm.get('tenChuyenMon')!.invalid && (editForm.get('tenChuyenMon')!.dirty || editForm.get('tenChuyenMon')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tenChuyenMon')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              Trường này không được vượt quá 50 ký tự.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

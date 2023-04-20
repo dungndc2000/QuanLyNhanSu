@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nhanVien">
+      <h2 data-cy="nhanVienDetailsHeading"><span jhiTranslate="quanlynhansuApp.nhanVien.detail.title">Nhan Vien</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ nhanVien.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.maNV">Ma NV</span></dt>
+        <dd>
+          <span>{{ nhanVien.maNV }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.tenNV">Ten NV</span></dt>
+        <dd>
+          <span>{{ nhanVien.tenNV }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.ngaySinh">Ngay Sinh</span></dt>
+        <dd>
+          <span>{{ nhanVien.ngaySinh | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.gioiTinh">Gioi Tinh</span></dt>
+        <dd>
+          <span>{{ nhanVien.gioiTinh }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.diaChi">Dia Chi</span></dt>
+        <dd>
+          <span>{{ nhanVien.diaChi }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.soCMND">So CMND</span></dt>
+        <dd>
+          <span>{{ nhanVien.soCMND }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.sDT">S DT</span></dt>
+        <dd>
+          <span>{{ nhanVien.sDT }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.email">Email</span></dt>
+        <dd>
+          <span>{{ nhanVien.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.heSoLuong">He So Luong</span></dt>
+        <dd>
+          <span>{{ nhanVien.heSoLuong }}</span>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.nguoiThan">Nguoi Than</span></dt>
+        <dd>
+          <div *ngIf="nhanVien.nguoiThan">
+            <a [routerLink]="['/nguoi-than', nhanVien.nguoiThan.id, 'view']">{{ nhanVien.nguoiThan.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.chucVu">Chuc Vu</span></dt>
+        <dd>
+          <div *ngIf="nhanVien.chucVu">
+            <a [routerLink]="['/chuc-vu', nhanVien.chucVu.id, 'view']">{{ nhanVien.chucVu.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.phongBan">Phong Ban</span></dt>
+        <dd>
+          <div *ngIf="nhanVien.phongBan">
+            <a [routerLink]="['/phong-ban', nhanVien.phongBan.id, 'view']">{{ nhanVien.phongBan.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.chuyenMon">Chuyen Mon</span></dt>
+        <dd>
+          <div *ngIf="nhanVien.chuyenMon">
+            <a [routerLink]="['/chuyen-mon', nhanVien.chuyenMon.id, 'view']">{{ nhanVien.chuyenMon.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="quanlynhansuApp.nhanVien.trinhDoHV">Trinh Do HV</span></dt>
+        <dd>
+          <div *ngIf="nhanVien.trinhDoHV">
+            <a [routerLink]="['/trinh-do-hv', nhanVien.trinhDoHV.id, 'view']">{{ nhanVien.trinhDoHV.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nhan-vien', nhanVien.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>
