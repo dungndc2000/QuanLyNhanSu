@@ -1,0 +1,26 @@
+{
+  "quanlynhansuApp": {
+    "trinhDoHV": {
+      "home": {
+        "title": "Trinh Do HVS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Trinh Do HV",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Trinh Do HV",
+        "notFound": "No Trinh Do HVS found"
+      },
+      "created": "Một Trinh Do HV mới được tạo với định danh {{ param }}",
+      "updated": "Một Trinh Do HV cập nhật với định danh {{ param }}",
+      "deleted": "Một Trinh Do HV đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Trinh Do HV {{ id }}?"
+      },
+      "detail": {
+        "title": "Trinh Do HV"
+      },
+      "id": "ID",
+      "maTDHV": "Ma TDHV",
+      "tenTDHV": "Ten TDHV",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-trinh-do-hv-heading"
+        data-cy="TrinhDoHVCreateUpdateHeading"
+        jhiTranslate="quanlynhansuApp.trinhDoHV.home.createOrEditLabel"
+      >
+        Thêm mới hoặc cập nhật Trinh Do HV
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.trinhDoHV.maTDHV" for="field_maTDHV">Ma TDHV</label>
+          <input type="text" class="form-control" name="maTDHV" id="field_maTDHV" data-cy="maTDHV" formControlName="maTDHV" />
+          <div *ngIf="editForm.get('maTDHV')!.invalid && (editForm.get('maTDHV')!.dirty || editForm.get('maTDHV')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('maTDHV')?.errors?.required" jhiTranslate="entity.validation.required">
+              Trường này bắt buộc phải nhập.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maTDHV')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              Trường này không được vượt quá 20 ký tự.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="quanlynhansuApp.trinhDoHV.tenTDHV" for="field_tenTDHV">Ten TDHV</label>
+          <input type="text" class="form-control" name="tenTDHV" id="field_tenTDHV" data-cy="tenTDHV" formControlName="tenTDHV" />
+          <div *ngIf="editForm.get('tenTDHV')!.invalid && (editForm.get('tenTDHV')!.dirty || editForm.get('tenTDHV')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tenTDHV')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              Trường này không được vượt quá 50 ký tự.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

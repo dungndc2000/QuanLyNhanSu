@@ -1,0 +1,31 @@
+{
+  "quanlynhansuApp": {
+    "khenThuong": {
+      "home": {
+        "title": "Khen Thuongs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Khen Thuong",
+        "createOrEditLabel": "Create or edit a Khen Thuong",
+        "notFound": "No Khen Thuongs found"
+      },
+      "created": "A new Khen Thuong is created with identifier {{ param }}",
+      "updated": "A Khen Thuong is updated with identifier {{ param }}",
+      "deleted": "A Khen Thuong is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Khen Thuong {{ id }}?"
+      },
+      "detail": {
+        "title": "Khen Thuong"
+      },
+      "id": "ID",
+      "soqd": "Soqd",
+      "ngayQd": "Ngay Qd",
+      "ten": "Ten",
+      "loai": "Loai",
+      "hinhThuc": "Hinh Thuc",
+      "soTien": "So Tien",
+      "noiDung": "Noi Dung",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

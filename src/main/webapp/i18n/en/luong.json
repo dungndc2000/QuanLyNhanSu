@@ -1,0 +1,30 @@
+{
+  "quanlynhansuApp": {
+    "luong": {
+      "home": {
+        "title": "Luongs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Luong",
+        "createOrEditLabel": "Create or edit a Luong",
+        "notFound": "No Luongs found"
+      },
+      "created": "A new Luong is created with identifier {{ param }}",
+      "updated": "A Luong is updated with identifier {{ param }}",
+      "deleted": "A Luong is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Luong {{ id }}?"
+      },
+      "detail": {
+        "title": "Luong"
+      },
+      "id": "ID",
+      "maLuong": "Ma Luong",
+      "heSoLuong": "He So Luong",
+      "luongCb": "Luong Cb",
+      "heSoPhuCap": "He So Phu Cap",
+      "khoanCongThem": "Khoan Cong Them",
+      "khoanTru": "Khoan Tru",
+      "nhanVien": "Nhan Vien"
+    }
+  }
+}

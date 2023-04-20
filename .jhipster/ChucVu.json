@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20230419033725",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "chuc_vu",
+  "fields": [
+    {
+      "fieldName": "maCV",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "tenChucVu",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "phuCap",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "ghiChu",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ChucVu",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "nhanVien",
+      "otherEntityRelationshipName": "chucVu",
+      "relationshipName": "nhanVien",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
